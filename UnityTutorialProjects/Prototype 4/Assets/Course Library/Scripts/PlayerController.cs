@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             Rigidbody enemyRigidbody = collision.gameObject.GetComponent<Rigidbody>();
             Vector3 awayFromPlayer = (collision.gameObject.transform.position - transform.position);
 
-            Debug.Log("You have butt munched " + collision.gameObject.name + "with a munch powerup set to " + hasPowerup);
+            Debug.Log("You have munched " + collision.gameObject.name + "with a munch powerup set to " + hasPowerup);
             enemyRigidbody.AddForce(awayFromPlayer * powerupStrength, ForceMode.Impulse);
         }
     }
