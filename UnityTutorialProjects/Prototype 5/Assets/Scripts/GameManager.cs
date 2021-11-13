@@ -7,25 +7,34 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-
+    
     public List<GameObject> targets;
     public TextMeshProUGUI gameOverText;
+    public GameObject titleScreen;
+    public Button restartButton;
     private float spawnRate = 1.0f;
     private int score = 0;
     public TextMeshProUGUI scoreText;
     public bool isGameActive;
-    public Button restartButton;
+    
     
 
     // Start is called before the first frame update
     void Start()
     {
-        isGameActive = true;
-        UpdateScore(0);
-        StartCoroutine(SpawnTarget());
 
         
         
+    }
+
+    public void StartGame(int difficulty)
+    {
+        isGameActive = true;
+        UpdateScore(0);
+        StartCoroutine(SpawnTarget());
+        UpdateScore(0);
+        titleScreen.gameObject.SetActive(false);
+        spawnRate /= difficulty;
     }
 
     public void GameOver()
